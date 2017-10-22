@@ -51,7 +51,7 @@ def write_dict_to_xml(mydict, filename):
                 name.appendChild(name_text)
                 obj.appendChild(name)
 
-                diff = doc.createElement("diffcult")
+                diff = doc.createElement("difficult")
                 diff_text = doc.createTextNode(str(0))
                 diff.appendChild(diff_text)
                 obj.appendChild(diff)
