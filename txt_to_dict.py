@@ -26,7 +26,7 @@ def write_txt_to_dict(output_dir):
             temp_dict["size"]["depth"] = im_depth
             temp_dict["object"] = {}
             temp_dict["object"]["bndbox"] = [[xmin, ymin, xmax, ymax]]
-            temp_dict["object"]["name"] = ["white_" + checkwell]
+            temp_dict["object"]["name"] = [output_dir.split("/")[-1].split("_")[0] + "_" + checkwell]
             temp_dict["object"]["difficult"] = [0]
             if not all_dict.has_key(filename):
                 # 新建
