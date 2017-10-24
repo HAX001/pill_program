@@ -34,7 +34,7 @@ def wrape_white_pills():
 		origin_image = cv2.imread(origin_image_ext)
 		# 写入目标文件
 		target_image_ext = os.path.join(write_to_path, "{:06d}.jpg")
-		target_image = origin_image[500:, 50:-50, 0:3]  # 此处可以修改
+		target_image = origin_image[300:, 50:-50, 0:3]  # 此处可以修改
 		cv2.imwrite(target_image_ext.format(len(list_to_images) + i + 1), target_image)
 		# 删除源文件
 		os.remove(origin_image_ext)

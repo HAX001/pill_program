@@ -26,7 +26,7 @@ def on_mouse_handle(event, x, y, flags, l_image):
         box[1] = y
 
         g_bDrawingBox = True
-        print("down:{},{}".format(box[0], box[1]))
+        #print("down:{},{}".format(box[0], box[1]))
 
     if event == cv2.EVENT_MOUSEMOVE:
         if g_bDrawingBox:
@@ -57,7 +57,7 @@ def on_mouse_handle(event, x, y, flags, l_image):
 
 
         cv2.rectangle(image, (box[0], box[1]), (box[2], box[3]), (0, 255, 0), 2)
-        print("up:{},{}".format(box[2], box[3]))
+        #print("up:{},{}".format(box[2], box[3]))
         cv2.imshow("image", image)
 
 
@@ -160,7 +160,9 @@ if __name__ == "__main__":
                     temp_dict[list_files[i]] = [[chr(key), box[0], box[1], box[2], box[3]]]
                 else:
                     temp_dict[list_files[i]].append([chr(key), box[0], box[1], box[2], box[3]])
-                print(key)
+                #print(key)
+                # 打印当前图像名，边框名，边框
+                print("{}  {}  [{:3d}, {:3d}, {:3d}, {:3d}]".format(list_files[i], chr(key), box[0], box[1], box[2], box[3]))
 
                 g_mouse_event = False
 
