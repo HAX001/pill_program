@@ -13,6 +13,10 @@ def process(path, annotation_path, JPEGImage_path):
     list_JPEGImage = os.listdir(JPEGImage_path)
     assert len(list_annotation) == len(list_JPEGImage),\
         "查查{}和{}路径下的文件数是否相等！".format(annotation_path, JPEGImage_path)
+    # annotation之前的文件数
+    list_origin = os.listdir(path)
+    origin_num_images = len(list_origin) - 1
+
     # 读取output.txt文件，变成dict字典
     all_dict = write_txt_to_dict(path)
 
@@ -32,11 +36,22 @@ def process(path, annotation_path, JPEGImage_path):
 
     # 删除output.txt
     os.remove(os.path.join(path, "output.txt"))
+
     # 并将剩余图像重新排序
+    # 注意
     list_last = os.listdir(path)
+    last_num_images = len(list_last)
+
+    cut_num_images = origin_num_images - last_num_images # 剪切走了的图像个数
+
+    temp_list = []
+    for i in range(len(list_last)):
+         temp_list.append("{:06d}.jpg".format(i+1+cut_num_images))
+    list_last = temp_list
+
     for i in range(len(list_last)):
         old_name_path = os.path.join(path, list_last[i])
-        new_name_path = os.path.join(path, "{:06d}".format(i+1) + ".jpg")
+        new_name_path = os.path.join(path, "{:06d}.jpg".format(i+1))
         os.rename(old_name_path, new_name_path)
 
     print("{} 注释完成！".format(path))

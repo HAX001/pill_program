@@ -82,6 +82,7 @@ if __name__ == "__main__":
     cv2.setMouseCallback("image", on_mouse_handle, image) # 设置鼠标回调函数
 
     # 给图像标注有以下选项:1 n:下一张, ESC:退出, r:重绘
+    # 这一步保证了图像是从000001索引按顺序开始进行标注的
     temp_list_files = []
     for i in range(len(list_files)):
         temp_list_files.append("{:06d}.jpg".format(i+1))
