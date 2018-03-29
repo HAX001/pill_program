@@ -11,4 +11,4 @@
     3：运行3_Annotation.py
     4：运行4_Imageset.py
 
-按阅读顺序进行操作后，则可得到质量较好的数据集！注：***表示可选(white, blue, oill, yellow)
+按阅读顺序进行操作后，则可得到质量较好的数据集！注：***表示可选(white, blue, oill, yellow),项目中未出现的文件夹请自行创建（如：/data/origin_data/）！
